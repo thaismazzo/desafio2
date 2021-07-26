@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Promoção Imperdível</title>
+</head>
+<header>
+    
+    <div class="header">
+        <a href="#default" class="logo">{Costa&Cia - Eurotrip}</a>
+        
+        <div class="header-right">
+          <a class="active" href="#home">Home</a>
+          <a href="#contact">Contato</a>
+          <a href="#about">Sobre nós</a>
+          <a href="#about">Minha Trip</a>
+          <a href="#compras"> Meu Carrinho de Sonhos</a>
+        </div>
+    </div> 
+</header>
+<body>
+    <section class="section-container">  
+
+        <p class="title2">Your dream is real! Take it. Make it.</p>
+        <div class="card-container">
+            <p class="acima">Cadastre-se para receber promoções exclusivas de pacotes aéreos e 
+                dicas para você curtir ainda mais sua #Costa&Cia Trip
+            </p>
+            <br/>
+            <form class="acima">
+                <input type="text" placeholder="{Nome completo}" id="nome">
+                <input type="text" placeholder="{Email que você mais usa}" id="email">
+
+                <input type="submit" value="Cadastrar #Costa&Cia" >
+            </form>
+            <script>
+                var salvarNome = function() {
+                    var nome = document.getElementById('nome').value;
+                    var email = document.getElementById('email').value;
+                    localStorage.setItem('nome',nome);
+                    localStorage.setItem('email',email);
+                }
+
+            </script>
+        </div>          
+    </section>
+
+    <section>
+        <div id="produtos">
+  
+        </div>
+        
+        <script>
+            const items = [
+                {
+                    id:0,
+                    nome:'GRÉCIA: HERE I GO!',
+                    img: '../images/grecia.jpg',
+                    quantidade: 0
+                },
+                {
+                    id:1,
+                    nome:'ALEMANHE-SE',
+                    img: '../images/alemanha.jpg',
+                    quantidade: 0
+                },
+                {
+                    id:2,
+                    nome:'LONDON',
+                    img: "../images/london.jpg",
+                    quantidade: 0
+                }
+            ]
+    
+            inicializarLoja = ()=>{
+                var containerProdutos = document.getElementById('produtos');
+                
+
+                items.map((val)=>{
+                    containerProdutos.innerHTML+= `
+                    <div class="card-one blue">
+                        <p>`+val.nome+`</p>                        
+                        <img <img src="`+val.img+`" width="500">
+                        <button type="button" id="val" onClick="salvaAlgo()">Tenho interesse em receber infos por email</button>
+                    </div>
+                    <br />
+                        
+                    `;
+                })
+                
+
+            }
+            
+            inicializarLoja();
+
+            salvaAlgo= ()=>{
+                alert("Seu sonho já está a menos um passo de acontecer!");
+                items.map((val)=>{           
+                    localStorage.setItem('Pacote',document.getElementById('produtos').nome);
+
+                })
+
+            }              
+                
+             
+            
+                
+                
+            
+                                  
+            // atualizarCarrinho = ()=> {
+                
+            //     alert("Seu sonho já está a mais um passo de acontecer! Vamos ");
+            //     var containerCarrinho = document.getElementById('carrinho');
+            //     AddCarrinho();
+            //     items.map((val)=>{
+            //         containerCarrinho.innerHTML+= `
+            //         <p>`+val.nome+`</p>                    `
+
+            //     })
+            //     localStorage.setItem(val.nome,val.quantidade);
+                   
+            // }
+            // var links = document.getElementsByTagName('a');
+    
+            // for(var i=0; i< links.length; i++){
+            //     links[i].addEventListener('click',function(){
+            //         let key = this.getAttribute('key');
+            //         items[key].quantidade++;
+            //         atualizarCarrinho();
+            //         return false;
+            //     })
+            // }
+
+        </script>    
+        
+    </section>
+</body>
+</html>
